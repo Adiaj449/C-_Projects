@@ -1,0 +1,9 @@
+
+
+Coding For Filter Dialog box File             
+            /*OpenFileDialog oF = new OpenFileDialog();
+
+            oF.Filter =  "All Files|*.*| * JPEG|*.jpg";
+            oF.ShowDialog();
+
+            */

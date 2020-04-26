@@ -1,0 +1,33 @@
+ // Marquee Coding Label 1
+            xpos = label1.Location.X;
+            ypos = label1.Location.Y;
+            mode = "right";
+            timer2.Start();
+ 
+private int xpos = 0, ypos = 0;
+        string mode = "";
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (mode == "right")
+            {
+                int a = label1.Location.X;
+
+                if (a > 0)
+                {
+                    textBox1.Text = a.ToString();
+                    
+                    if (this.Height == ypos)
+                    {
+                        this.label1.Location = new System.Drawing.Point(xpos, 0);
+                        xpos = 0;
+                    }
+                    else
+                    {
+                        this.label1.Location = new System.Drawing.Point(xpos, ypos);
+                        xpos -= 3;
+                     
+                    }
+                   
+                    timer3.Start();
+                }

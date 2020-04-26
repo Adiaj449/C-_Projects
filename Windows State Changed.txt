@@ -1,0 +1,5 @@
+Change The windows State 
+
+private void itmNormal_Click(object sender, System.EventArgs e){this.WindowState = FormWindowState.Normal;}
+private void itmMinimized_Click(object sender, System.EventArgs e){this.WindowState = FormWindowState.Minimized;}
+private void itmMaximized_Click(object sender, System.EventArgs e){this.WindowState = FormWindowState.Maximized;}

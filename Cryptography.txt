@@ -1,0 +1,8 @@
+
+            char[] a = txtEncryption.Text.ToCharArray();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                char x = ((char)(((int)a[i]) -  3));
+                txtDecryption.Text += x;
+            }

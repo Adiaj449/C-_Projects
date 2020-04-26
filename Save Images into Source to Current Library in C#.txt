@@ -1,0 +1,11 @@
+ private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            fd.ShowDialog();
+
+            int s=007;
+            string imgName=s+".jpg";
+            pictureBox1.Image = Image.FromFile(fd.FileName);
+            File.Copy(fd.FileName,@"C:\Users\Ajinkya\Documents\Visual Studio 2010\Projects\Message\Message\@Picture\B\"+imgName,true);
+             
+        }

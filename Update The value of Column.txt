@@ -1,0 +1,1 @@
+ update tblLogin set Password = 'Aditya' where Password= 'Ajinkya'

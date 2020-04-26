@@ -1,0 +1,13 @@
+  try
+            {
+                int s = 007;
+                string imgName = s + ".jpg";
+                pictureBox1.Image = Image.FromFile(fd.FileName);
+                // File.Copy(fd.FileName,@"C:\Users\Ajinkya\Documents\Visual Studio 2010\Projects\Message\Message\@Picture\B\"+imgName,true);
+                 
+                File.Copy(fd.FileName, AppDomain.CurrentDomain.BaseDirectory + @"@Picture\@B\" + imgName, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }

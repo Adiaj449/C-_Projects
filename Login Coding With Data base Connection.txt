@@ -1,0 +1,32 @@
+ private void button1_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = true;
+
+
+            string DS = @"Data Source=.\sqlExpress;User Id=sa;Password=Ajinkya;initial             catalog=Student";
+            SqlConnection Cn = new SqlConnection(DS);
+            Cn.Open();
+
+            string uname = txtUname.Text;
+            string password = txtPass.Text;
+
+            string temp1 = "Select UName,pass from tblLogin ";
+            SqlCommand cmd = new SqlCommand(temp1, Cn);
+
+
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                if (sdr["UName"].ToString() == uname & sdr[1].ToString() == password)
+                {
+                    MessageBox.Show("Thanks");
+                    /* Temporary Code for Clear text
+                     txtUname.Clear();
+                     txtPass.Clear();
+                     txtUname.Focus();
+                    */
+                }
+
+            }
+        }

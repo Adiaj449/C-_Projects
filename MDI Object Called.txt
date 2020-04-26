@@ -1,0 +1,12 @@
+// Form Click
+ private void formToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showMDI(new Form1());
+
+        }
+//MDI Method
+private void showMDI(Form ob)
+        {
+            ob.MdiParent = this;
+            ob.Show();
+        }

@@ -1,0 +1,71 @@
+
+		private void bttnUpdate_Click(object sender, System.EventArgs e)
+		{
+			if(txtBookNO.Text == "")
+			{
+				clsFunctions.isTextEmptyMsg("Book Number");
+				txtBookNO.Focus();
+			}
+			else if(txtISBN.Text  == "")
+			{
+				clsFunctions.isTextEmptyMsg("ISBN");
+				txtISBN.Focus();
+			}				
+			else if(txtAuthor.Text  == "")
+			{
+				clsFunctions.isTextEmptyMsg("Author");
+				txtAuthor.Focus();
+			}					
+			else if(txtBookTitle.Text  == "")
+			{
+				clsFunctions.isTextEmptyMsg("Book Title");
+				txtBookTitle.Focus();
+			}			
+			else if(txtCategory.Text  == "")
+			{
+				clsFunctions.isTextEmptyMsg("Category");
+				txtCategory.Focus();
+			}		
+			else if(txtPublished.Text.Length < 4)
+			{
+				MessageBox.Show("Pls. enter the correct year that Book was Published",clsVariables.sMSGBOX,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+			}	
+			else if(txtQuantity.Text  == "")
+			{
+				clsFunctions.isTextEmptyMsg("Quantity");
+				txtQuantity.Focus();
+			}
+			else if(ADD_STATE==true && clsFunctions.recordExist("SELECT BookNo FROM tblBooks WHERE BookNo LIKE '" + txtBookNO.Text + "' ","tblBooks") == true)
+			{
+				MessageBox.Show("Book Number already exist.Please check it and change it!",clsVariables.sMSGBOX,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+				txtBookNO.Focus();
+			}
+			else
+			{
+				cmdAddBook.Parameters["@getBookNo"].Value=txtBookNO.Text;
+				cmdAddBook.Parameters["@getISBN"].Value=txtISBN.Text;
+				cmdAddBook.Parameters["@getAuthor"].Value=txtAuthor.Text;
+				cmdAddBook.Parameters["@getBookTitle"].Value=txtBookTitle.Text;
+				cmdAddBook.Parameters["@getCategoryIndex"].Value=iCategory;
+				cmdAddBook.Parameters["@getYearPublished"].Value=txtPublished.Text;
+				cmdAddBook.Parameters["@getDateArrived"].Value=dtArrived.Text;
+				cmdAddBook.Parameters["@getPrice"].Value=(double.Parse(txtPrice.Text));
+				cmdAddBook.Parameters["@getQty"].Value=(double.Parse(txtQuantity.Text));
+				cmdAddBook.Parameters["@getAddedBy"].Value = clsVariables.sLibrarianID;
+				cmdAddBook.Parameters["@getDateAdd"].Value = DateTime.Now.ToLongDateString ()+ " " + DateTime.Now.ToLongTimeString();
+				cmdAddBook.Parameters["@getModifyBy"].Value = clsVariables.sLibrarianID;
+				cmdAddBook.Parameters["@getDateModify"].Value = DateTime.Now.ToLongDateString ()+ " " + DateTime.Now.ToLongTimeString();
+
+				cmdAddBook.ExecuteNonQuery();
+
+				if(ADD_STATE==false)
+				{
+					MessageBox.Show("Changes in record has been successfully saved.",clsVariables.sMSGBOX,MessageBoxButtons.OK,MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show("Record has been successfully added.",clsVariables.sMSGBOX,MessageBoxButtons.OK,MessageBoxIcon.Information);
+				}
+				FORMBooks.publicBooksList.tabCategory_SelectedIndexChanged(sender, e);
+				this.Close();
+			}

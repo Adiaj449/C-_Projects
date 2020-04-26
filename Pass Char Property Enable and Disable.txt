@@ -1,0 +1,7 @@
+Pass Char Property
+Check Box Control
+private void chkUnmask_CheckedChanged(object sender, System.EventArgs e)
+		{
+			if(chkUnmask.Checked==true){this.txtPwd.PasswordChar=Convert.ToChar(0);}
+			else{this.txtPwd.PasswordChar='•';}
+		}

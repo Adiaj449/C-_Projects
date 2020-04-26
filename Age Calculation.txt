@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Age_Calculatin
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string _name;
+            double _age;
+
+            Console.WriteLine("Enter The Name of The Student: ");
+            _name = Console.ReadLine();
+
+            Console.WriteLine("Enter The Age of The Student: ");
+            _age = Convert.ToInt32(Console.ReadLine());
+
+            calculate(_name, _age);
+
+        }
+        static void calculate(string name, double age)
+        {
+            double temp;
+            
+            temp=24*60*60;
+
+            Console.WriteLine("\n\nHello User :- ");
+            Console.WriteLine("Your Age        : {0} ", age);
+            Console.WriteLine("Your Month      : {0} ", (age * 12));
+            Console.WriteLine("Your Days       : {0} ", (age * 365));
+            Console.WriteLine("Your Hours      : {0} ", (24 * 365 * age));
+            Console.WriteLine("Your Minutes    : {0} ", (24 * 60 * 365 * age));
+            Console.WriteLine("Your Seconds    : {0} \n\n", (temp * 365 * age));
+        }
+    }
+}
+   
+

@@ -1,0 +1,24 @@
+ Console.Write("Target Range : ");
+            int target = int.Parse( Console.ReadLine());
+
+            for (int n = 1; n <= target; n++)
+            {
+                if (IsPrime(n))
+                    Console.Write(n + " ");
+            }
+        }
+
+        static bool IsPrime(int num)
+        {
+            bool status = true;
+
+            for (int d = 2; d <= num / 2; d++)
+            {
+                if (num % d == 0)
+                {
+                    status = false;
+                    break;
+                }
+            }
+
+            return status;
